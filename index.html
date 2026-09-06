@@ -271,13 +271,30 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 }
 @media(max-width:768px){
  html,body{overflow-x:hidden;max-width:100%}
- .nav-right{gap:6px;overflow-x:auto;flex-shrink:1;min-width:0;scrollbar-width:none}
+ .nav-right{gap:2px;overflow:visible;flex-wrap:nowrap;min-width:0}
+ #cart-trigger{flex-shrink:0;padding:7px 9px!important}
+ .logo-sub{display:none}
+ .logo-name{font-size:0.95rem!important}
+ .nav-bundles-btn,.order-history-btn{flex-shrink:0}
+ .theme-toggle{display:none!important}
  .nav-right::-webkit-scrollbar{display:none}
  .nav-tag{display:none}
  .nav-right>button{font-size:0.7rem!important;padding:6px 10px!important;white-space:nowrap;flex-shrink:0}
  .shop-tabs{width:100%;max-width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
  .shop-tabs::-webkit-scrollbar{display:none}
  .shop-tab{flex-shrink:0;white-space:nowrap;padding:8px 16px}
+ .nlbl{display:none}
+ .admin-nav-btn{display:none!important}
+ .nav-bundles-btn,.order-history-btn{padding:5px 6px!important;font-size:0.95rem!important}
+ .shop-tabs{display:none!important}
+ body{padding-bottom:72px}
+ #wa-widget{bottom:82px!important}
+ #secret-btn{bottom:76px!important}
+ #mobile-cat-bar{display:flex!important;position:fixed;bottom:0;left:0;right:0;z-index:950;background:var(--surface);border-top:1px solid var(--border);padding:6px 4px;padding-bottom:calc(6px + env(safe-area-inset-bottom))}
+ #mobile-cat-bar button{flex:1;background:transparent;border:none;color:var(--text2);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:0.58rem;font-weight:700;cursor:pointer;padding:3px 0;font-family:inherit}
+ #mobile-cat-bar .mcb-ico{font-size:1.15rem;line-height:1}
+ #mobile-cat-bar button span:last-child{line-height:1.05;text-align:center}
+ #mobile-cat-bar button.active{color:var(--teal)}
 }
 
 /* ── BUNDLE INTRO ─────────────────────────────────── */
@@ -422,11 +439,11 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
     </div>
   </div>
   <div class="nav-right">
-    <button onclick="openBundleIntro()" class="nav-bundles-btn">🎁 Deals</button>
+    <button onclick="openBundleIntro()" class="nav-bundles-btn">🎁 <span class="nlbl">Deals</span></button>
     <div class="nav-tag">Cash on Delivery</div>
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button><button class="order-history-btn" onclick="openOrderTracker()">📦 Track Order</button><button class="order-history-btn" onclick="openHistory()">📋 My Orders</button><button onclick="openAdmin()" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--text2);padding:7px 14px;border-radius:100px;font-size:0.75rem;font-weight:600;cursor:pointer;margin-right:8px;">Admin</button><button id="cart-trigger" onclick="openCart()">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button><button class="order-history-btn" onclick="openOrderTracker()">📦 <span class="nlbl">Track Order</span></button><button class="order-history-btn" onclick="openHistory()">📋 <span class="nlbl">My Orders</span></button><button onclick="openAdmin()" class="admin-nav-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--text2);padding:7px 14px;border-radius:100px;font-size:0.75rem;font-weight:600;cursor:pointer;margin-right:8px;">Admin</button><button id="cart-trigger" onclick="openCart()">
       <svg viewBox="0 0 16 16" style="width:14px;height:14px;fill:none;stroke:#000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M2 2h1.5l1.5 7h7l1.5-5H5"/><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>
-      Cart <span id="cart-count">0</span>
+      <span class="nlbl">Cart </span><span id="cart-count">0</span>
     </button>
   </div>
 </nav>
@@ -604,7 +621,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
       </div>
     </div>
   </div>
-</div></div><div class="shop-section hidden" id="section-fidgets"><div class="section-grid" id="grid-fidgets"></div></div><div class="shop-section hidden" id="section-squishys"><div class="section-grid" id="grid-squishys"><p class="shop-section-empty">Coming soon...</p></div></div><div class="shop-section hidden" id="section-snacks"><div class="section-grid" id="grid-snacks"><p class="shop-section-empty">Coming soon...</p></div></div><div class="shop-section hidden" id="section-phonecases"><div class="section-grid" id="grid-phonecases"><p class="shop-section-empty">Coming soon...</p></div></div>
+</div></div><div class="shop-section hidden" id="section-fidgets"><div class="section-grid" id="grid-fidgets"></div></div><div class="shop-section hidden" id="section-squishys"><div class="section-grid" id="grid-squishys"><p class="shop-section-empty">Coming soon...</p></div></div><div class="shop-section hidden" id="section-snacks"><div class="section-grid" id="grid-snacks"><p class="shop-section-empty">Coming soon...</p></div></div><div class="shop-section hidden" id="section-phonecases"><div class="section-grid" id="grid-phonecases"><p class="shop-section-empty">Coming soon...</p></div></div><div class="shop-tabs shop-tabs-bottom" style="margin:2.5rem auto 1.5rem;"><button class="shop-tab active" onclick="switchTabScroll('backtoschool')">Back to School</button><button class="shop-tab" onclick="switchTabScroll('fidgets')">Fidgets</button><button class="shop-tab" onclick="switchTabScroll('squishys')">Squishys</button><button class="shop-tab" onclick="switchTabScroll('snacks')">Snacks</button><button class="shop-tab" onclick="switchTabScroll('phonecases')">Phone Cases</button></div>
 </div>
 
 <div class="section-wrap">
@@ -3022,5 +3039,5 @@ async function saveEarning(){
     </div>
   </div>
 </div>
-<button id="secret-btn" onclick="openSecret()" aria-label="" style="position:fixed;bottom:6px;right:6px;width:28px;height:28px;background:transparent;border:none;opacity:0.04;cursor:default;z-index:900;padding:0;"></button><div id="secret-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:99998;align-items:center;justify-content:center;padding:24px;"><div style="background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:1.5rem;width:320px;max-width:92vw;text-align:center;"><div style="font-size:1.6rem;margin-bottom:8px;">🔒</div><div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:14px;">Secret access</div><input id="secret-pw" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')checkSecret()" style="width:100%;background:#111;border:1px solid #333;color:#fff;padding:11px 14px;border-radius:10px;font-size:0.9rem;outline:none;box-sizing:border-box;margin-bottom:8px;"/><div id="secret-err" style="display:none;color:#e5484d;font-size:0.75rem;margin-bottom:8px;">Wrong password</div><button onclick="checkSecret()" style="width:100%;background:#00c896;color:#000;border:none;padding:11px;border-radius:10px;font-weight:800;cursor:pointer;margin-bottom:6px;">Enter</button><button onclick="closeSecret()" style="background:transparent;border:none;color:#666;font-size:0.8rem;cursor:pointer;">Cancel</button></div></div><script>function openSecret(){var o=document.getElementById('secret-overlay');if(o.parentElement!==document.body)document.body.appendChild(o);document.getElementById('secret-pw').value='';document.getElementById('secret-err').style.display='none';o.style.display='flex';setTimeout(function(){document.getElementById('secret-pw').focus();},100);}function closeSecret(){document.getElementById('secret-overlay').style.display='none';}function checkSecret(){var v=(document.getElementById('secret-pw').value||'').trim().toLowerCase();if(v==='adam adam'){closeSecret();openAdmin();document.getElementById('admin-login').style.display='none';document.getElementById('admin-panel').style.display='block';switchAdminTab('orders');loadOrders();}else{document.getElementById('secret-err').style.display='block';document.getElementById('secret-pw').value='';}}</script></body>
+<button id="secret-btn" onclick="openSecret()" aria-label="" style="position:fixed;bottom:6px;right:6px;width:28px;height:28px;background:transparent;border:none;opacity:0.04;cursor:default;z-index:900;padding:0;"></button><div id="secret-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:99998;align-items:center;justify-content:center;padding:24px;"><div style="background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:1.5rem;width:320px;max-width:92vw;text-align:center;"><div style="font-size:1.6rem;margin-bottom:8px;">🔒</div><div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:14px;">Secret access</div><input id="secret-pw" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')checkSecret()" style="width:100%;background:#111;border:1px solid #333;color:#fff;padding:11px 14px;border-radius:10px;font-size:0.9rem;outline:none;box-sizing:border-box;margin-bottom:8px;"/><div id="secret-err" style="display:none;color:#e5484d;font-size:0.75rem;margin-bottom:8px;">Wrong password</div><button onclick="checkSecret()" style="width:100%;background:#00c896;color:#000;border:none;padding:11px;border-radius:10px;font-weight:800;cursor:pointer;margin-bottom:6px;">Enter</button><button onclick="closeSecret()" style="background:transparent;border:none;color:#666;font-size:0.8rem;cursor:pointer;">Cancel</button></div></div><script>function openSecret(){var o=document.getElementById('secret-overlay');if(o.parentElement!==document.body)document.body.appendChild(o);document.getElementById('secret-pw').value='';document.getElementById('secret-err').style.display='none';o.style.display='flex';setTimeout(function(){document.getElementById('secret-pw').focus();},100);}function closeSecret(){document.getElementById('secret-overlay').style.display='none';}function checkSecret(){var v=(document.getElementById('secret-pw').value||'').trim().toLowerCase();if(v==='adam adam'){closeSecret();openAdmin();document.getElementById('admin-login').style.display='none';document.getElementById('admin-panel').style.display='block';switchAdminTab('orders');loadOrders();}else{document.getElementById('secret-err').style.display='block';document.getElementById('secret-pw').value='';}}</script><div id="mobile-cat-bar" style="display:none"><button data-cat="backtoschool" class="active" onclick="mobileCat('backtoschool')"><span class="mcb-ico">🎒</span><span>Back to School</span></button><button data-cat="fidgets" onclick="mobileCat('fidgets')"><span class="mcb-ico">🌀</span><span>Fidgets</span></button><button data-cat="squishys" onclick="mobileCat('squishys')"><span class="mcb-ico">🧸</span><span>Squishys</span></button><button data-cat="snacks" onclick="mobileCat('snacks')"><span class="mcb-ico">🍫</span><span>Snacks</span></button><button data-cat="phonecases" onclick="mobileCat('phonecases')"><span class="mcb-ico">📱</span><span>Cases</span></button></div><script>function syncMobileCat(c){var bar=document.getElementById('mobile-cat-bar');if(!bar)return;bar.querySelectorAll('button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-cat')===c);});}function switchTabScroll(t){if(typeof switchTab==='function')switchTab(t);var el=document.getElementById('products');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});if(typeof syncMobileCat==='function')syncMobileCat(t);}function mobileCat(c){if(typeof switchTab==='function')switchTab(c);var el=document.getElementById('products');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});syncMobileCat(c);}</script></body>
 </html>
